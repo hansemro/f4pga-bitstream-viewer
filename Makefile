@@ -35,8 +35,8 @@ nenv/bin/vue: nenv/bin/activate
 			@vue/cli \
 			@vue/cli-service-global ; \
 		npm install \
-			apexcharts vue-apexcharts vue-good-table ; \
-	' && touch $@
+			vue@^2 vue-template-compiler apexcharts vue-apexcharts vue-good-table ; \
+	'
 
 dist/index.html: nenv/bin/vue App.vue Popup.vue Grid.vue Bitstream.vue bitstreamData.json
 	bash -c ' \
