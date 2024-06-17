@@ -42,7 +42,7 @@ dist/index.html: nenv/bin/vue App.vue Popup.vue Grid.vue Bitstream.vue bitstream
 	bash -c ' \
 		. venv/bin/activate ; \
 		. nenv/bin/activate ; \
-		NODE_ENV=development NODE_OPTIONS="--max_old_space_size=8192" vue build App.vue ; \
+		NODE_ENV=development NODE_OPTIONS="--max_old_space_size=8192" vue build main.js ; \
 	'
 
 all:: dist/index.html
