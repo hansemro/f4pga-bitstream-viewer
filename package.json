@@ -1,0 +1,19 @@
+{
+  "name": "bitstream_app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve main.js",
+    "build": "vue-cli-service build main.js"
+  },
+  "dependencies": {
+    "apexcharts": "^3.49.1",
+    "vue": "^2.7.16",
+    "vue-apexcharts": "^1.6.2",
+    "vue-good-table": "^2.21.11"
+  },
+  "devDependencies": {
+    "@vue/cli-service": "~5.0.0",
+    "vue-template-compiler": "^2.7.16"
+  }
+}
