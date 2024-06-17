@@ -296,6 +296,8 @@ def bits_to_fasm(db_root, db_part, bits_file):
 
 
 def grid_size(db_dir, db_part):
+    # truncate package and speedgrade from full part name
+    db_part = db_part[:-8]
     tilegrid = ''
     with open(db_dir + '/' + db_part + '/tilegrid.json', 'r') as f:
         data = f.read()
