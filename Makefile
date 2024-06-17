@@ -57,18 +57,17 @@ PART ?= xc7a35tcsg324-1
 DATABASE ?= $(PRJXRAY)/database/artix7
 
 bitstream.bits: $(BITSTREAM)
-	$(PRJXRAY)/build/tools/bitread \
+	bitread \
 		--part_file $(DATABASE)/$(PART)/part.yaml \
 		-o $@ -z -y $<
 
 bitstream.frames: $(BITSTREAM)
-	$(PRJXRAY)/build/tools/bitread \
+	bitread \
 		--part_file $(DATABASE)/$(PART)/part.yaml \
 		-o $@ $<
 
 bitstream.html: bitstream.frames bitstream.bits
-	PYTHONPATH="$(PRJXRAY):$(PRJXRAY)/third_party/fasm:" \
-		./bithtml.py \
+	./bithtml.py \
 		--db-dir=$(DATABASE) \
 		--db-part=$(PART) \
 		--frames-per-line=100 \
@@ -81,8 +80,7 @@ grid/.dir:
 	mkdir grid && touch $@
 
 bitstreamData.json: bitstream.bits bithtml.py grid/.dir frames/.dir
-	PYTHONPATH="$(PRJXRAY):$(PRJXRAY)/third_party/fasm:" \
-		./bithtml.py \
+	./bithtml.py \
 		--db-dir=$(DATABASE) \
 		--db-part=$(PART) \
 		--bits=bitstream.bits \
